@@ -232,7 +232,7 @@ const flag = flagMatch ? flagMatch[0] : "🌍";
 const countryName = payload.country.split(" ")[0];
 const messageLines = [
 
-`🔔New OTP Received<b>${payload.country}</b>${payload.application}!`,
+`${flag}${payload.country} <b>${payload.application} OTP Received!!`,
   "─────────────────────",  
 
 `🌍 <b>COUNTRY :</b> ${payload.country || "Tidak Dikenal 🏳"}`,  
