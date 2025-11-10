@@ -22,7 +22,7 @@ const axios = require("axios");
 
 /// ========== CONFIG ==========
 
-const TELEGRAM_TOKEN = "8042598537:AAFH-sirDGiNCP1mneP0CKRZMs1K0pT7UVc";
+const TELEGRAM_TOKEN = "8317383114:AAHA81sPMiO_SPW6-JNlIQMkOuxl10uJfMI";
 
 const TELEGRAM_CHAT_ID = "-1002591228761";
 
@@ -210,8 +210,6 @@ const countries = {
 
 234: "Nigeria 🇳🇬",  
 
-  
-
 221: "Senegal 🇸🇳",
 
 };
@@ -229,12 +227,13 @@ return "Tidak Dikenal 🏳";
 // === BUILD TELEGRAM MESSAGE ===
 
 function buildTelegramMessage(payload) {
-
+const flagMatch = payload.country.match(/[\u{1F1E6}-\u{1F1FF}]{2}/u);
+const flag = flagMatch ? flagMatch[0] : "🌍";
+const countryName = payload.country.split(" ")[0];
 const messageLines = [
 
-"🔔 <b>OTP Received!</b>",  
-
-"─────────────────────",  
+`🔔New OTP Received<b>${payload.country}</b>${payload.application}!`,
+  "─────────────────────",  
 
 `🌍 <b>COUNTRY :</b> ${payload.country || "Tidak Dikenal 🏳"}`,  
 
